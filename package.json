@@ -9,6 +9,8 @@
   "author": "David Quintero",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.5",
     "nodejs-web-scraper": "^6.0.1"
   }
 }

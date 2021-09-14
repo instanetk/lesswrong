@@ -1,4 +1,5 @@
 const LessWrongScraper = require('./scraper');
+require('./db')();
 
 // 1 - Scrape content to json file
 

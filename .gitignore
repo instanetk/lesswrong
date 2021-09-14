@@ -2,3 +2,4 @@ node_modules
 logs
 pages.json
 package-lock.json
+.env
