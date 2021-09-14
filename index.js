@@ -15,7 +15,13 @@ const fs = require('fs');
       author: pageObject.author[0],
       url: address,
     };
-    pages.push(article);
+
+    // Ensure only posts URL are indexed, exclude all other paths or external domains
+
+    let regex = new RegExp('https://www.lesswrong.com/posts');
+    if (regex.test(article.url)) {
+      pages.push(article);
+    }
   };
 
   const config = {
