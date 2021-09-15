@@ -11,7 +11,6 @@ const LessWrongScraper = async () => {
   const getPageObject = (pageObject, address) => {
     let article = {
       title: pageObject.title[0],
-      date: pageObject.date[0],
       author: pageObject.author[0],
       url: address,
     };
