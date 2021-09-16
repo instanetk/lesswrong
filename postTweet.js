@@ -5,9 +5,9 @@ async function postTweet() {
   setInterval(async function () {
     const data = await Post.find({ published: false });
 
-    if (!data[0] === undefined) {
+    if (data[0]) {
       console.log(data[0]); //current tweet
-      await twitterClient.tweets.statusesUpdate({ status: data[0].title + ' #LessWrong' + data[0].url });
+      await twitterClient.tweets.statusesUpdate({ status: data[0].title + ' #LessWrong ' + data[0].url });
       try {
         data[0].published = true;
         await data[0].save();
