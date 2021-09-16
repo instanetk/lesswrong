@@ -1,12 +1,14 @@
 const LessWrongScraper = require('./scraper');
-require('./db')();
-const upload = require('./upload');
 const postTweet = require('./postTweet');
-// 1 - Scrape content to json file
+require('./db')();
 
-// LessWrongScraper();
-// upload();
+// 1 - Scrape content to json file & Upload to DB
+// Interval: 1 hour
 
-// 2 - Check for new post since last scrape
+setInterval(function () {
+  LessWrongScraper();
+}, 36000000);
+
+// 2 - Post tweet at 1 minute interval
 
 postTweet();

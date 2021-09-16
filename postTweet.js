@@ -13,7 +13,7 @@ async function postTweet() {
     } catch (ex) {
       console.log('error?', ex.message);
     }
-  }, 5000);
+  }, 60000);
 }
 
 module.exports = postTweet;

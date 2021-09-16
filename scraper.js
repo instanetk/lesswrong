@@ -1,5 +1,6 @@
 const { Scraper, Root, OpenLinks, CollectContent } = require('nodejs-web-scraper');
 const fs = require('fs');
+const upload = require('./upload');
 
 const LessWrongScraper = async () => {
   const pages = []; //All scraped posts.
@@ -50,6 +51,8 @@ const LessWrongScraper = async () => {
   await scraper.scrape(root);
 
   fs.writeFile('./pages.json', JSON.stringify(pages), () => {}); //Produces a formatted JSON with all posts.
+
+  upload(); // Uploads new items to DB
 };
 
 module.exports = LessWrongScraper;
