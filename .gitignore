@@ -3,3 +3,4 @@ logs
 pages.json
 package-lock.json
 .env
+Dockerfile
