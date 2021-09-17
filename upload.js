@@ -1,7 +1,7 @@
 const { Post } = require('./models/post');
-const articles = require('./pages.json');
+// const articles = require('./pages.json');
 
-async function upload() {
+async function upload(articles) {
   for (let i = 0; i < articles.length; i++) {
     const exists = await Post.find({ url: articles[i].url });
     console.log('query', exists);

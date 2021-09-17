@@ -50,12 +50,8 @@ const lessWrongScraper = async () => {
 
   await scraper.scrape(root);
 
-  fs.writeFile('./pages.json', JSON.stringify(pages), () => {}); //Produces a formatted JSON with all posts.
-
-  setTimeout(async function () {
-    console.log('Upload to DB');
-    await uploadToDB();
-  }, 5000);
+  // fs.writeFile('./pages.json', JSON.stringify(pages), () => {}); //Produces a formatted JSON with all posts.
+  await uploadToDB(pages);
 };
 
 module.exports = lessWrongScraper;
