@@ -27,7 +27,6 @@ const lessWrongScraper = async () => {
   const config = {
     baseSiteUrl: `https://www.lesswrong.com/`,
     startUrl: `https://www.lesswrong.com/allPosts`,
-    // filePath: './images/',
     logPath: './logs/',
   };
 
@@ -36,8 +35,6 @@ const lessWrongScraper = async () => {
   const root = new Root(); //Open pages 1-10. You need to supply the querystring that the site uses(more details in the API docs).
 
   const lessWrong = new OpenLinks('.PostsTitle-root a', { name: 'lesswrong', getPageObject }); //Opens every job ad, and calls the getPageObject, passing the formatted dictionary.
-
-  // const phones = new CollectContent('.details-desc a.tel', { name: 'phone' })//Important to choose a name, for the getPageObject to produce the expected results.
 
   const titles = new CollectContent('.PostsPageTitle-root', { name: 'title' });
   const date = new CollectContent('.PostsPageDate-date', { name: 'date' });

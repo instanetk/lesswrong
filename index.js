@@ -5,8 +5,9 @@ require('./db')();
 // 1 - Scrape content to json file
 // Interval: 1 hour
 
+let firstRun = false;
+
 async function init() {
-  let firstRun = false;
   if (!firstRun) {
     firstRun = true;
     await lessWrongScraper();

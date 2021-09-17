@@ -1,5 +1,4 @@
 const { Post } = require('./models/post');
-// const articles = require('./pages.json');
 
 async function upload(articles) {
   for (let i = 0; i < articles.length; i++) {
