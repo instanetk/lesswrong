@@ -1,7 +1,8 @@
 const { Scraper, Root, OpenLinks, CollectContent } = require('nodejs-web-scraper');
 const fs = require('fs');
+const uploadToDB = require('./upload');
 
-const LessWrongScraper = async () => {
+const lessWrongScraper = async () => {
   const pages = []; //All scraped posts.
 
   //pageObject will be formatted as {title,phone,images}, becuase these are the names we chose for the scraping operations below.
@@ -50,6 +51,11 @@ const LessWrongScraper = async () => {
   await scraper.scrape(root);
 
   fs.writeFile('./pages.json', JSON.stringify(pages), () => {}); //Produces a formatted JSON with all posts.
+
+  setTimeout(async function () {
+    console.log('Upload to DB');
+    await uploadToDB();
+  }, 5000);
 };
 
-module.exports = LessWrongScraper;
+module.exports = lessWrongScraper;

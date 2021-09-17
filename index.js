@@ -1,19 +1,23 @@
-const LessWrongScraper = require('./scraper');
+const lessWrongScraper = require('./scraper');
 const postTweet = require('./postTweet');
-const upload = require('./upload');
-
 require('./db')();
 
 // 1 - Scrape content to json file
 // Interval: 1 hour
 
-setInterval(function () {
-  LessWrongScraper();
-}, 3600000);
+async function init() {
+  let firstRun = false;
+  if (!firstRun) {
+    firstRun = true;
+    await lessWrongScraper();
+  }
+}
 
-setInterval(function () {
-  upload(); // Uploads new items to DB
-}, 3900000);
+init();
+
+setInterval(async function () {
+  await lessWrongScraper();
+}, 3600000);
 
 // 2 - Post tweet at 1 minute interval
 
