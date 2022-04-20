@@ -6,7 +6,6 @@ async function postTweet() {
     let data;
     try {
       data = await Post.find({ published: false });
-      console.log('data', data);
     } catch (ex) {
       console.log(ex);
     }
