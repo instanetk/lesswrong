@@ -4,13 +4,13 @@ require('./db')();
 
 // 0 Interval: 1 hour
 
-const interval = async () => {
+const timerToRunAtXMinutes = async () => {
   const mins = new Date().getMinutes();
-  console.log(mins, mins == 0);
+  console.log(mins, mins == 59);
 
-  if (mins == 0) {
+  if (mins == 59) {
     console.log('SCRAPING FOR NEW POSTS');
-    await lesswrongScraper();
+    await lessWrongScraper();
   }
 };
 
@@ -28,8 +28,8 @@ async function init() {
 init();
 
 setInterval(() => {
-  interval();
-}, 1000);
+  timerToRunAtXMinutes();
+}, 1000 * 60); //once a minute
 
 // 2 - Post tweet at 1 minute interval
 
