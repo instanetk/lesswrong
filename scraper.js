@@ -28,6 +28,10 @@ const lessWrongScraper = async () => {
     baseSiteUrl: `https://www.lesswrong.com/`,
     startUrl: `https://www.lesswrong.com/allPosts`,
     logPath: './logs/',
+    headers: {
+      'user-agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36',
+    },
   };
 
   const scraper = new Scraper(config);
