@@ -7,6 +7,12 @@ const postSchema = new mongoose.Schema({
     minLength: 5,
     maxLength: 999,
   },
+  gpt3: {
+    type: String,
+    required: true,
+    minLength: 5,
+    maxLength: 999,
+  },
   date: {
     type: Date,
     required: true,

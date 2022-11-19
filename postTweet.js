@@ -1,7 +1,7 @@
 const twitterClient = require('./twitterClient');
 const { Post } = require('./models/post');
 
-const cropTitleTo240Characters = (str) => {
+const cropStringTo240Characters = (str) => {
   let tweet = str.split('');
   if (tweet.length > 220) {
     const array = tweet.splice(0, 220);
@@ -23,7 +23,7 @@ async function postTweet() {
       console.log('next to tweet', data[0]); //current tweet
       try {
         await twitterClient.tweets.statusesUpdate({
-          status: cropTitleTo240Characters(data[0].title) + ' ' + data[0].url,
+          status: cropStringTo240Characters('[gpt-3] ' + data[0].gpt3) + ' ' + data[0].url,
         });
         data[0].published = true;
         await data[0].save();

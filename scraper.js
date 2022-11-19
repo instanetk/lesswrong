@@ -1,5 +1,4 @@
 const { Scraper, Root, OpenLinks, CollectContent } = require('nodejs-web-scraper');
-const fs = require('fs');
 const uploadToDB = require('./upload');
 
 const lessWrongScraper = async () => {
