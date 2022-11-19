@@ -10,7 +10,7 @@ const openai = new OpenAIApi(configuration);
 const getGPT3SummaryDescription = async (url) => {
   const response = await openai.createCompletion({
     model: 'text-davinci-002',
-    prompt: 'Summarize this post ' + url,
+    prompt: 'Summarize this: ' + url,
     temperature: 0.7,
     max_tokens: 256,
     top_p: 1,

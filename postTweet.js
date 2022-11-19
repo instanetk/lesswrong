@@ -23,7 +23,7 @@ async function postTweet() {
       console.log('next to tweet', data[0]); //current tweet
       try {
         await twitterClient.tweets.statusesUpdate({
-          status: cropStringTo240Characters('[gpt-3] ' + data[0].gpt3) + ' ' + data[0].url,
+          status: cropStringTo240Characters('[GPT-3] ' + data[0].gpt3) + ' ' + data[0].url,
         });
         data[0].published = true;
         await data[0].save();
